@@ -1,0 +1,25 @@
+{
+  "id": "example-saner",
+  "status": "active",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n <p>\n Read-Only access to SANER report is authorized for PurposeOfUse of Public-Health compliance, from the Organizations.\n Access requests authorized shall be recorded. \n </p>\n <p> \n TODO: extension help. No access is granted to previous historic revisions (only current report).\n </p>\n <p> \n TODO: authorize a Group/P1. \n </p>\n </div>"
+  },
+  "status": "active",
+  "date": [
+    "2018-12-24"
+  ],
+  "regard": [
+    {
+      "type": "permit",
+      "data": [
+        {
+          "extension": {
+            "typeL": "text/fhirpath",
+            "extension": "http://hl7.org/fhir/uv/saner/Measure/CDCHealthcareSupplyPathway"
+          }
+        }
+      ]
+    }
+  ]
+}

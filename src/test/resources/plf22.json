@@ -1,0 +1,16 @@
+{
+  "id": "p4",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>GeneratedNarrative with Details</b></p><p><b>id</b>: f203</p><p><b>identifier</b>:Zorginstelling naam"
+  },
+  "active": false,
+  "description": "Blijdorp Medisch Centrum (BUMC)",
+  "emergency": [
+    {
+      "contact": {
+        "text": "mrs. F. de Katz"
+      }
+    }
+  ]
+}

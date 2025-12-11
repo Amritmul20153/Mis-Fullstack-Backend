@@ -1,0 +1,10 @@
+{
+  "recurrenceId": "1",
+  "id": "examplereq",
+  "participant": [
+    {
+      "required": true,
+      "status": "needs-action"
+    }
+  ]
+}

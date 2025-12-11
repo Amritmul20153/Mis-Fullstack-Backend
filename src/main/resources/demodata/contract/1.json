@@ -1,0 +1,15 @@
+{
+  "id": "C-123",
+  "text": {
+    "status": "generated",
+    "div": " "
+  },
+  "version":"1.0",
+  "status":"resolved",
+  "contentDefinition": {
+    "type":{
+      "text": "General Contract"
+    },
+    "publicationDate":"2022-01-04"
+  }
+}

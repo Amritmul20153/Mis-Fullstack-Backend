@@ -1,0 +1,22 @@
+services:
+  runner:
+    image: gitlab/gitlab-runner
+    stdin_open: true
+    tty: true
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./config:/etc/gitlab-runner
+
+  kaniko-container:
+    image: registry.gitlab.com/ilknur1234/kaniko:latest
+    stdin_open: true
+    tty: true
+    ports:
+      - "8090:8090"
+
+  mis-fhir:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"

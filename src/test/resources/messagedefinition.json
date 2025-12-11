@@ -1,0 +1,15 @@
+{
+  "id": "patient-link-response",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Link Patients Response</div>"
+  },
+  "url": "http://hl7.org/fhir/MessageDefinition/patient-link-response",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.15.1"
+    }
+  ],
+  "version": "1"
+}

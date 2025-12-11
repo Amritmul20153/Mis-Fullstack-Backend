@@ -1,0 +1,22 @@
+{
+  "id": "example",
+  "text": {
+    "status": "generated",
+    "div": "d>* </td>\n\t\t\t\t\t\t<td><span title=\"Codes: {http://ema.europa.eu/example/countryCode EU}\">EU</span></td>\n\t\t\t\t\t\t<td><span title=\"Codes: {http://ema.europa.eu/example/jurisdictionCode EU}\">EU</span></td>\n\t\t\t\t\t\t<td><span title=\"Codes: {urn:ietf:bcp:47}\">EN</span></td>\n\t\t\t\t\t</tr>\n\t\t\t\t</table>\n\t\t\t</blockquo te>\n\t\t\t<p><b>Manufacturing &amp; Business Operations</b></p>\n\t\t\t<table class=\"grid\">\n\t\t\t\t<tr>\n\t\t\t\t\t<td>- </td>\n\t\t\t\t\t<td><b>Type</b></td>\n\t\t\t\t\t<td><b>EffectiveDate</b></td>\n\t\t\t\t\t<td><b>Authorization</b></td>\n\t\t\t\t</tr>\n\t\t\t\t<tr>\n\t\t\t\t\t<td>*</td>\n\t \t\t\t\t<td>Batch Release</td>\n\t\t\t\t\t<td>2013-03-15 --&gt; (ongoing)</td>\n\t\t\t\t\t<td><span>1324TZ</span></td>\n\t\t\t\t</tr>\n\t\t\t</table>\n \t\t</div>"
+  },
+  "identifier": [
+    {
+      "system": "http://ema.europa.eu/example/MPID",
+      "value": "{mpid}"
+    }
+  ],
+  "version": "1.0",
+  "type": {
+    "text": "syringe"
+  },
+  "name": [
+    {
+      "productName": "Equilidem 2.5 mg film-coated tablets"
+    }
+  ]
+}
