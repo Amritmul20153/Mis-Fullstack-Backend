@@ -9,7 +9,8 @@ import java.net.URI;
 import java.util.Optional;
 
 
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+//@CrossOrigin(origins = "*", allowedHeaders = "*")
+@CrossOrigin(origins = "http://localhost:4200")
 public abstract class BaseController<T> {
     private final CrudRepository<T, String> repository;
 
