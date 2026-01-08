@@ -11,7 +11,6 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
-
 @RestController
 @RequestMapping("/api/patient")
 public class PatientController extends AbstractSearchController<Patient> {

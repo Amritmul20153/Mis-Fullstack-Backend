@@ -11,6 +11,7 @@ import java.util.Optional;
 
 //@CrossOrigin(origins = "*", allowedHeaders = "*")
 @CrossOrigin(origins = "http://localhost:4200")
+@RestController
 public abstract class BaseController<T> {
     private final CrudRepository<T, String> repository;
 
