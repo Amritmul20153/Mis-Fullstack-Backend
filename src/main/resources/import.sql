@@ -138,3 +138,14 @@ update reg_regard set plf2_reg_regard='c82c41cd-f7fe-4b5e-86e2-c3efd73897e5' whe
 update dat_data set reg_dat_data='793c2d3a-c2e5-4f98-8b86-1f27d10e3332' where id='16525847-e255-4514-b1b2-56dc92287f0d';
 insert into plf2_1_date (plf2_1_id,plf2_date) values ('c82c41cd-f7fe-4b5e-86e2-c3efd73897e5','2018-12-24');
 
+
+
+--Patienten--
+
+-- Patienten für Import
+
+INSERT INTO patient (id, family, given, gender, birth_date) VALUES (1, 'Müller', 'Anna', 'female', '1990-05-12');
+INSERT INTO patient (id, family, given, gender, birth_date) VALUES (2, 'Schmidt', 'Peter', 'male', '1985-11-23');
+INSERT INTO patient (id, family, given, gender, birth_date) VALUES (3, 'Meier', 'Laura', 'female', '2000-07-09');
+INSERT INTO patient (id, family, given, gender, birth_date) VALUES (4, 'Wolf', 'Jonas', 'male', '1996-08-14');
+INSERT INTO patient (id, family, given, gender, birth_date) VALUES (5, 'Becker', 'Sophia', 'female', '1992-02-28');

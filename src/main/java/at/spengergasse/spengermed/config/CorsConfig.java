@@ -1,5 +1,5 @@
 
-package at.spengergasse.spengermed.config;
+/*package at.spengergasse.spengermed.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
@@ -16,4 +16,4 @@ public class CorsConfig implements WebMvcConfigurer {
                 .allowedHeaders("*");
     }
 }
-
+*/

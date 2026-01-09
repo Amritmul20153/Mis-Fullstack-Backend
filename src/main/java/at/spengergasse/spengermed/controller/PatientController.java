@@ -11,10 +11,11 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
-@CrossOrigin(origins = "http://localhost:4200")
+
 @RestController
-@RequestMapping("/api/patient")
+@RequestMapping("/api")
 public class PatientController extends AbstractSearchController<Patient> {
+
 
     private final PatientRepository repo;
 
@@ -22,17 +23,45 @@ public class PatientController extends AbstractSearchController<Patient> {
         this.repo = repo;
     }
 
+    /**
+     * FHIR-konforme Suche mit Pagination
+     */
     @GetMapping
-    public Bundle search(@RequestParam Map<String, String> params,
-                         HttpServletRequest request) {
+    public Bundle search(
+            @RequestParam Map<String, String> params,
+            HttpServletRequest request
+    ) {
 
-        // Pagination aus Parametern
-        int count = Integer.parseInt(params.getOrDefault("_count", "10"));
-        int page = Integer.parseInt(params.getOrDefault("_page", "1")) - 1; // 0-basiert
-        Pagination pagination = new Pagination(page, count);
+        // ✅ sichere Pagination (keine Exceptions)
+        int count;
+        int page;
 
-        Specification<Patient> spec = PatientSpecification.buildSpecification(params);
-        PageRequest pageable = PageRequest.of(pagination.getPage(), pagination.getCount());
+        try {
+            count = Integer.parseInt(params.getOrDefault("_count", "10"));
+        } catch (Exception e) {
+            count = 10;
+        }
+
+        try {
+            page = Integer.parseInt(params.getOrDefault("_page", "1")) - 1;
+        } catch (Exception e) {
+            page = 0;
+        }
+
+        Pagination pagination = new Pagination(
+                Math.max(page, 0),
+                Math.max(count, 1)
+        );
+
+        // 🔹 _page & _count nicht an Specification weitergeben
+        params.remove("_page");
+        params.remove("_count");
+
+        Specification<Patient> spec =
+                PatientSpecification.buildSpecification(params);
+
+        PageRequest pageable =
+                PageRequest.of(pagination.getPage(), pagination.getCount());
 
         return searchInternal(
                 params,
@@ -40,6 +69,14 @@ public class PatientController extends AbstractSearchController<Patient> {
                 spec,
                 repo.findAll(spec, pageable)
         );
+    }
+
+    /**
+     * Patient anlegen (wichtig für Angular!)
+     */
+    @PostMapping
+    public Patient create(@RequestBody Patient patient) {
+        return repo.save(patient);
     }
 
     @Override

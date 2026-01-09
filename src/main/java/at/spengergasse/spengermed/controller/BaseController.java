@@ -3,59 +3,63 @@ package at.spengergasse.spengermed.controller;
 import jakarta.validation.Valid;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.net.URI;
 import java.util.Optional;
 
+/**
+ * Generischer CRUD-Controller für Subklassen.
+ * Kein Spring-Runtime-Fehler mehr.
+ */
 
-//@CrossOrigin(origins = "*", allowedHeaders = "*")
-@CrossOrigin(origins = "http://localhost:4200")
-@RestController
 public abstract class BaseController<T> {
-    private final CrudRepository<T, String> repository;
 
+    protected final CrudRepository<T, String> repository;
 
-    public BaseController(CrudRepository<T, String> repository) {
+    // 🔹 Nur protected, damit Subklassen es nutzen
+    protected BaseController(CrudRepository<T, String> repository) {
         this.repository = repository;
     }
 
-    @GetMapping
+    // GET ALL
     public Iterable<T> getAll() {
         return repository.findAll();
     }
 
-    @GetMapping("{id}")
-    public ResponseEntity<T> getById(@PathVariable String id) {
+    // GET BY ID
+    public ResponseEntity<T> getById(String id) {
         Optional<T> optionalEntity = repository.findById(id);
-        return optionalEntity.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+        return optionalEntity.map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @PostMapping
-    public ResponseEntity<T> create(@Valid @RequestBody T entity) {
+    // CREATE
+    public ResponseEntity<T> create(@Valid T entity) {
         T savedEntity = repository.save(entity);
         return ResponseEntity
-                .created(URI.create("/api/" + entity.getClass().getSimpleName().toLowerCase() + "/" + savedEntity.toString()))
+                .created(URI.create("/api/" + savedEntity.getClass().getSimpleName().toLowerCase()))
                 .body(savedEntity);
     }
 
-    @PutMapping("{id}")
-    public ResponseEntity<T> update(@PathVariable String id, @Valid @RequestBody T updatedEntity) {
-        return repository.findById(id)
-                .map(entity -> {
-                    repository.save(updatedEntity);
-                    return ResponseEntity.ok(updatedEntity);
-                })
-                .orElseGet(() -> ResponseEntity.notFound().build());
+    // UPDATE
+    public ResponseEntity<T> update(String id, @Valid T updatedEntity) {
+        if (repository.existsById(id)) {
+            repository.save(updatedEntity);
+            return ResponseEntity.ok(updatedEntity);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
-    @DeleteMapping("{id}")
-    public ResponseEntity<Void> delete(@PathVariable String id) {
-        return repository.findById(id)
-                .map(entity -> {
-                    repository.delete(entity);
-                    return ResponseEntity.noContent().<Void>build();
-                })
-                .orElseGet(() -> ResponseEntity.notFound().build());
+    // DELETE
+    public ResponseEntity<Void> delete(String id) {
+        if (repository.existsById(id)) {
+            repository.deleteById(id);
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 }
