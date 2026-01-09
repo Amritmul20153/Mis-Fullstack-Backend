@@ -11,6 +11,7 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/api/patient")
 public class PatientController extends AbstractSearchController<Patient> {
