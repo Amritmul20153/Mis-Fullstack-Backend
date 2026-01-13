@@ -19,4 +19,6 @@ public class Ratio extends Element {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "ra_denominator")
     private SimpleQuantity denominator;
+
+
 }

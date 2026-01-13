@@ -17,14 +17,11 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .cors(Customizer.withDefaults())  // CORS aktivieren
-                .csrf(csrf -> csrf.disable())     // CSRF für APIs deaktivieren
+                .csrf(csrf -> csrf.disable()) // CSRF-Schutz deaktivieren
+                .cors(Customizer.withDefaults()) // CORS aktivieren
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/h2-console/**").permitAll()
-                        .anyRequest().authenticated()
-                )
-                .httpBasic(Customizer.withDefaults()) // Basic Auth
-                .headers(headers -> headers.frameOptions(frame -> frame.disable())); // H2 Console in Browser erlauben
+                        .anyRequest().permitAll() // Alle Anfragen erlauben
+                );
 
         return http.build();
     }
@@ -34,9 +31,9 @@ public class SecurityConfig {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true);
-        config.setAllowedOriginPatterns(List.of("http://localhost:4200"));
+        config.setAllowedOriginPatterns(List.of("http://localhost:4200")); // Angular-Frontend
         config.setAllowedHeaders(List.of("*"));
-        config.setAllowedMethods(List.of("GET","POST","PUT","DELETE","OPTIONS"));
+        config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         source.registerCorsConfiguration("/**", config);
         return new CorsFilter(source);
     }

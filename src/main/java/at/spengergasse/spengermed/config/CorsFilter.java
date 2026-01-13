@@ -1,4 +1,4 @@
-package at.spengergasse.spengermed.config;
+/*package at.spengergasse.spengermed.config;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -33,3 +33,5 @@ public class CorsFilter extends OncePerRequestFilter {
         filterChain.doFilter(request, response);
     }
 }
+
+ */

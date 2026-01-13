@@ -1,0 +1,17 @@
+{
+  "id": "example",
+  "text": {
+    "status" : "generated",
+    "div": "<div>e1</div>"
+  },
+  "u": "http://e1",
+  "idi": [{
+    "system": "3986",
+    "value": "6-7"
+  }],
+  "vs": "1",
+  "rTr": [{
+    "des": "An Encounter has been completed",
+    "supp": "update"
+  }]
+}
