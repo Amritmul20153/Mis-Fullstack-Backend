@@ -1,0 +1,16 @@
+{
+  "id": "PLF5B12",
+  "billId": {
+    "value": "i-2024-19"
+  },
+  "phase": "issued",
+  "issuerOrg": {
+    "referene": "org1"
+  },
+  "totalNet": 349,
+
+  "paymentInfo": {
+  "method": "transfer",
+  "dueDate": "2024-12-15"
+  }
+}

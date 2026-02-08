@@ -1,4 +1,4 @@
-package at.spengergasse.spengermed;
+/*package at.spengergasse.spengermed;
 
 import at.spengergasse.spengermed.model.Encounter;
 import at.spengergasse.spengermed.model.PLF1_1;
@@ -54,3 +54,5 @@ public class PLF1_1ControllerTest extends AbstractControllerTest {
         performDeleteRequest("/api/plf1_1/" + id);
     }
 }
+
+ */

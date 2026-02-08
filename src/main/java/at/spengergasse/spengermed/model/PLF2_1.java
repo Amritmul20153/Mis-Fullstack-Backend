@@ -33,6 +33,9 @@ public class PLF2_1 extends DomainResource {
     @JoinColumn(name = "plf2_reg_regard")
     private List<Regard> regard = new ArrayList<>();
 
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "rt_plf_id", referencedColumnName = "id")
+    private List<rTr> rTr=new ArrayList<>();
 
 
 

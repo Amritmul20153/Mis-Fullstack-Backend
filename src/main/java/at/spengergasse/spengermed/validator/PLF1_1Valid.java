@@ -1,4 +1,4 @@
-package at.spengergasse.spengermed.validator;
+/*package at.spengergasse.spengermed.validator;
 
 
 import jakarta.validation.Constraint;
@@ -18,4 +18,6 @@ public @interface PLF1_1Valid {
     Class<? extends Payload>[] payload() default {};
 }
 
+
+ */
 
