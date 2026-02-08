@@ -14,7 +14,8 @@ import java.util.List;
 @AllArgsConstructor
 @Getter
 @Setter
-@SuperBuilder
+@MappedSuperclass
+@Builder
 public class DiagnosticReport extends DomainResource{
 
     @OneToMany(cascade = CascadeType.ALL)

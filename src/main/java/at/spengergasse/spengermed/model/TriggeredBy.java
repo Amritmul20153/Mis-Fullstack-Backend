@@ -12,7 +12,7 @@ import lombok.*;
 @AllArgsConstructor
 @Table(name = "tr_triggeredBy")
 @Builder
-public class TriggerdBy extends BackboneElement {
+public class TriggeredBy extends BackboneElement {
 
     @NotNull
     @OneToOne(cascade = CascadeType.ALL)
@@ -28,7 +28,7 @@ public class TriggerdBy extends BackboneElement {
     @Column(name = "tr_type", nullable = false)
     private Code type;
 
-    @Column(name = "tr_reason")
+    @Column(name = "tr_reason", length = 1000)
     private String reason;
 }
 
