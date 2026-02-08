@@ -149,3 +149,44 @@ INSERT INTO patient (id, family, given, gender, birth_date) VALUES (2, 'Schmidt'
 INSERT INTO patient (id, family, given, gender, birth_date) VALUES (3, 'Meier', 'Laura', 'female', '2000-07-09');
 INSERT INTO patient (id, family, given, gender, birth_date) VALUES (4, 'Wolf', 'Jonas', 'male', '1996-08-14');
 INSERT INTO patient (id, family, given, gender, birth_date) VALUES (5, 'Becker', 'Sophia', 'female', '1992-02-28');
+
+
+-- =========================================
+-- Sample data for SpengerMed (FHIR Observation)
+-- =========================================
+
+-- -------------------------
+-- Patient
+-- -------------------------
+INSERT INTO `spengermed`.`p_patient`
+(`id`, `p_active`, `p_deceasedboolean`, `p_gender`)
+VALUES
+    ('643221yu', true, false, 'other');
+
+-- -------------------------
+-- Observations
+-- -------------------------
+
+-- Observation 1: Creatinin normal
+INSERT INTO `spengermed`.`o_observation`
+(`id`, `o_status`, `o_effective_datetime`, `o_issued`,
+ `o_value_quantity`, `o_value_unit`, `o_sanitycheck`)
+VALUES
+    ('obs-001', 'final', '2024-01-10 09:30:00', '2024-01-10 10:00:00',
+     88.0, 'µmol/L', 1);
+
+-- Observation 2: Creatinin leicht erhöht
+INSERT INTO `spengermed`.`o_observation`
+(`id`, `o_status`, `o_effective_datetime`, `o_issued`,
+ `o_value_quantity`, `o_value_unit`, `o_sanitycheck`)
+VALUES
+    ('obs-002', 'preliminary', '2024-01-11 08:15:00', '2024-01-11 08:45:00',
+     102.0, 'µmol/L', 1);
+
+-- Observation 3: Kein Messwert vorhanden (FHIR obs-6 korrekt)
+INSERT INTO `spengermed`.`o_observation`
+(`id`, `o_status`, `o_effective_datetime`, `o_issued`,
+ `o_data_absent_reason`, `o_sanitycheck`)
+VALUES
+    ('obs-003', 'final', '2024-01-12 09:00:00', '2024-01-12 09:30:00',
+     'not-performed', 1);
