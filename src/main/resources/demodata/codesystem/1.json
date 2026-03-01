@@ -1,0 +1,88 @@
+{
+  "resourceType": "CodeSystem",
+  "url": "https://termgit.elga.gv.at/CodeSystem/kl-oegam-primarycarecode",
+  "version": "1.0.0+20230915",
+  "name": "kl-oegam-primarycarecode",
+  "title": "KL ÖGAM PrimaryCareCodes",
+  "status": "active",
+  "description": "The valueset kl-oegam-primarycarecode is intended to provide the technical and scientific basis for indirect coding in primary care.",
+  "copyright": "Copyright by Dr. Helmut Dultinger und Dr. Christoph Powondra, Karl Landsteiner Privatuniversität für Gesundheitswissenschaften.",
+  "content": "supplement",
+  "supplements": "http://snomed.info/sct",
+  "property": [
+    {
+      "code": "ICPC2ID",
+      "description": "ICPC-2 Code",
+      "type": "code"
+    },
+    {
+      "code": "SNOMEDCTID",
+      "description": "SNOMED CT ID",
+      "type": "code"
+    },
+    {
+      "code": "SNOMEDCTBEGRIFFE",
+      "description": "FSN im SNOMED CT International Browser",
+      "type": "string"
+    },
+    {
+      "code": "KRITERIEN",
+      "description": "Diagnosekriterien",
+      "type": "string"
+    },
+    {
+      "code": "HINWEISE",
+      "description": "Klinische Hinweise",
+      "type": "string"
+    },
+    {
+      "code": "FARBE",
+      "description": "Farbkodierung (1-12)",
+      "type": "integer"
+    },
+    {
+      "code": "KOMPONENTE",
+      "description": "Komponente (1-7)",
+      "type": "integer"
+    },
+    {
+      "code": "ICD10BEGRIFFE",
+      "description": "ICD-10 Bezeichnung",
+      "type": "string"
+    },
+    {
+      "code": "SYNONYM",
+      "description": "Synonyme und alternative Bezeichnungen",
+      "type": "string"
+    }
+  ],
+  "concept": [
+    {
+      "code": "2134003",
+      "display": "Diffuser Schmerz",
+      "property": [
+        { "code": "ICPC2ID",          "valueCode":    "A01" },
+        { "code": "SNOMEDCTID",       "valueCode":    "2134003" },
+        { "code": "SNOMEDCTBEGRIFFE", "valueString":  "Diffuse pain (finding)" },
+        { "code": "KRITERIEN",        "valueString":  "Schmerz, nicht näher bezeichnet" },
+        { "code": "FARBE",            "valueInteger": 1 },
+        { "code": "KOMPONENTE",       "valueInteger": 1 },
+        { "code": "ICD10BEGRIFFE",    "valueString":  "Schmerz, nicht näher bezeichnet" },
+        { "code": "SYNONYM",          "valueString":  "Unspezifischer Schmerz" }
+      ]
+    },
+    {
+      "code": "22253000",
+      "display": "Schmerz",
+      "property": [
+        { "code": "ICPC2ID",          "valueCode":    "A01" },
+        { "code": "SNOMEDCTID",       "valueCode":    "22253000" },
+        { "code": "SNOMEDCTBEGRIFFE", "valueString":  "Pain (finding)" },
+        { "code": "KRITERIEN",        "valueString":  "Schmerz, nicht näher bezeichnet" },
+        { "code": "FARBE",            "valueInteger": 1 },
+        { "code": "KOMPONENTE",       "valueInteger": 1 },
+        { "code": "ICD10BEGRIFFE",    "valueString":  "Schmerz, nicht näher bezeichnet" }
+      ]
+    }
+  ]
+}
