@@ -15,7 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "pl_plf22")
+@Table(name = "pl22_plf22")
 public class PLF22 extends Resource {
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "i_patient_fk")

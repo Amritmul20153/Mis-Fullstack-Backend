@@ -1,0 +1,13 @@
+{
+  "resourceType": "PLF2_1",
+  "id" : "example",
+  "text" : {
+    "status" : "extensions"
+  },
+  "ex" : false,
+  "pl" : [{
+    "reference" : {
+      "reference" : "http://acme.com"
+    }
+  }]
+}

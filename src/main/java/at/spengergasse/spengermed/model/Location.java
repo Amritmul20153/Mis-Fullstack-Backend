@@ -2,6 +2,8 @@ package at.spengergasse.spengermed.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 import java.util.ArrayList;
@@ -25,19 +27,20 @@ public class Location extends DomainResource {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "l_status")
-    private Location.StatusCodeL status;
+    private StatusCodeL status;
 
     @OneToOne
     @JoinColumn(name = "l_operationalStatus")
     private Coding  operationalStatus;
 
-    @Column
+    @Column(name = "l_name") //hast vergessen Namen bei allen Column
     private String name;
 
     @ElementCollection
+    @CollectionTable(name = "alias_location", joinColumns = @JoinColumn(name = "id")) // das ist richtig -
     private List<String>alias = new ArrayList<>();
 
-    @Column
+    @Column(name = "l_description") //vorsicht nicht vergessen Columnnamen zu schreiben
     private String description;
 
 
@@ -48,7 +51,7 @@ public class Location extends DomainResource {
     private Location.Mode mode;
 
     @OneToMany
-    @JoinColumn(name = "l_type")
+    @JoinColumn(name = "l_cc_type") //die klasse mit der ich jz arbeite (kürzel) dann _ die klasse die vorkommt zb. CodeableConcept also cc und dann name von attribut. also zb l_cc_type
     private List<CodeableConcept> type = new ArrayList<>();
 
     @OneToMany
@@ -69,7 +72,8 @@ public class Location extends DomainResource {
 
     @OneToOne
     @JoinColumn (name = "l_managingOrganization")
-    private Reference managingOrganization;
+    private Reference managingOrganization; // wenn reference als datentyp Und in klamma eine klasse dann nur
+    // reference nehmen
 
     @OneToOne
     @JoinColumn (name = "l_partOf")
@@ -89,6 +93,6 @@ public class Location extends DomainResource {
     private List<Availability>  virtualService = new ArrayList<>();
 
     @OneToMany
-    @JoinColumn
+    @JoinColumn (name ="l_endpoint")
     private List<Reference> endpoint = new ArrayList<>();
 }

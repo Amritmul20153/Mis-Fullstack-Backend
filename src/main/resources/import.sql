@@ -190,3 +190,12 @@ INSERT INTO `spengermed`.`o_observation`
 VALUES
     ('obs-003', 'final', '2024-01-12 09:00:00', '2024-01-12 09:30:00',
      'not-performed', 1);
+
+
+
+--PLF21--------test-imports------------------------------------------------------------------------------------
+INSERT INTO `spengermed`.`p21_plf21` (`p21_ex`, `id`, `p21_name`) VALUES ('extension', 'example', 'PLF2_1');
+INSERT INTO `spengermed`.`pl_pl` (`pl_reference`) VALUES ('http://acme.com');
+INSERT INTO `spengermed`.`p21_plf21` (`p21_ex`) VALUES ('false');
+
+
